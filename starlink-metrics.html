@@ -1,0 +1,48 @@
+<script type="text/javascript">
+  RED.nodes.registerType('starlink-mini-metrics',{
+    category: 'function',
+    color: '#E6E0F8',
+    defaults: {
+      name: {value:""},
+      outputProperty: {value:"payload"},
+      strict: {value:true},
+      includeIdentity: {value:true}
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "font-awesome/fa-satellite-dish",
+    label: function() {
+      return this.name || "starlink mini metrics";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="starlink-mini-metrics">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-outputProperty">Output property</label>
+    <input type="text" id="node-input-outputProperty" placeholder="payload">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-strict">Strict</label>
+    <input type="checkbox" id="node-input-strict" style="width:auto;">
+    <span style="margin-left:6px;">Drop msg if payload is missing <code>status</code></span>
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-includeIdentity">Identity fields</label>
+    <input type="checkbox" id="node-input-includeIdentity" style="width:auto;">
+    <span style="margin-left:6px;">Include <code>ts</code>, <code>dish_id</code>, <code>serial</code></span>
+  </div>
+</script>
+
+<script type="text/html" data-help-name="starlink-mini-metrics">
+  <p>Extracts and normalizes advanced metrics from Starlink Mini <code>raw_status</code> payloads.</p>
+  <p>Accepts <code>msg.payload</code> as an object or JSON string. Outputs a flattened metrics object.</p>
+</script>
+

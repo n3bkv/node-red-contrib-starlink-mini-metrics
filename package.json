@@ -1,0 +1,14 @@
+{
+  "name": "node-red-contrib-starlink-mini-metrics",
+  "version": "0.1.0",
+  "description": "Node-RED node to extract advanced Starlink Mini metrics from raw_status payloads",
+  "keywords": ["node-red", "starlink", "mini", "metrics"],
+  "license": "MIT",
+  "main": "starlink-metrics.js",
+  "author": "Dave N3BKV",
+  "node-red": {
+    "nodes": {
+      "starlink-mini-metrics": "starlink-metrics.js"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-starlink-mini-metrics",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Extract and normalize advanced Starlink Mini metrics from raw_status payloads in Node-RED",
   "keywords": [
     "node-red",

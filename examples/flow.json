@@ -1,0 +1,92 @@
+[
+    {
+        "id": "7c0d63d971235533",
+        "type": "tab",
+        "label": "Starlink Mini Metrics Demo",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "ff347cfec5c245d1",
+        "type": "mqtt in",
+        "z": "7c0d63d971235533",
+        "name": "Starlink raw_status",
+        "topic": "starlink/mini/raw_status",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "broker_starlink",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "139a924967149da1"
+            ]
+        ]
+    },
+    {
+        "id": "139a924967149da1",
+        "type": "starlink-mini-metrics",
+        "z": "7c0d63d971235533",
+        "name": "Extract metrics",
+        "outputProperty": "payload",
+        "strict": true,
+        "includeIdentity": true,
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "fdfd934a4253655f"
+            ]
+        ]
+    },
+    {
+        "id": "fdfd934a4253655f",
+        "type": "debug",
+        "z": "7c0d63d971235533",
+        "name": "metrics out",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 650,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "broker_starlink",
+        "type": "mqtt-broker",
+        "name": "MQTT 192.168.50.10",
+        "broker": "192.168.50.10",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "f54770635a0b02e0",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-starlink-mini-metrics": "0.1.0"
+        }
+    }
+]
